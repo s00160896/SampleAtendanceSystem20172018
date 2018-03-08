@@ -7,14 +7,12 @@ using System.Web;
 
 namespace StudentAttendance.Models.Banner
 {
-    public class Enrollment
+    public class AttendanceList
     {
-
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public DateTime EnrollmentDate { get; set; }
-
+        public virtual Attendance AttendanceOf { get; set; }
     }
 }

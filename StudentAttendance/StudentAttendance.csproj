@@ -213,7 +213,12 @@
     </Compile>
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Banner\enrollment.cs" />
+    <Compile Include="Models\Banner\Attendance.cs" />
+    <Compile Include="Models\Banner\AttendanceDB.cs" />
+    <Compile Include="Models\Banner\AttendanceList.cs" />
+    <Compile Include="Models\Banner\Delivery.cs" />
+    <Compile Include="Models\Banner\Enrollment.cs" />
+    <Compile Include="Models\Banner\Lecturer.cs" />
     <Compile Include="Models\Banner\Module.cs" />
     <Compile Include="Models\Banner\Student.cs" />
     <Compile Include="Models\IdentityModels.cs" />
