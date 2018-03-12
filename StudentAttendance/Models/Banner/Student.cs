@@ -12,6 +12,7 @@ namespace StudentAttendance.Models.Banner
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int  id { get; set; }
+        public string RegistrationID { get; set; }
         public string FirstName { get; set; }
         public int SecondName { get; set; }
         [EmailAddress]

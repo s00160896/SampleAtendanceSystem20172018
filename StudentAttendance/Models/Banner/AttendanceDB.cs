@@ -10,7 +10,8 @@ namespace StudentAttendance.Models.Banner
     {
         public AttendanceDB() : base("SchoolDB")
         {
-        
+            Database.SetInitializer(new AttendDbInitializer());
+
         }
         public DbSet<Student> Students { get; set; }
         public DbSet<Lecturer> Lecturers { get; set; }

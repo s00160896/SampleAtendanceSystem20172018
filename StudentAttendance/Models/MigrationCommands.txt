@@ -1,0 +1,11 @@
+﻿Create a code first database context called AttendanceDB based on the Model Given and seed appropriate data. 
+
+enable-migrations -ContextTypeName StudentAttendance.Models.Banner.AttendanceDB -MigrationsDirectory Migrations\AttendanceMigrations
+enable-migrations -ContextTypeName StudentAttendance.Models.ApplicationDbContext -MigrationsDirectory Migrations\ApplicationUserMigrations
+
+add-migration –ConfigurationTypeName StudentAttendance.Migrations.ApplicationUserMigrations.Configuration "Initial Application Migration"
+add-migration –ConfigurationTypeName StudentAttendance.Migrations.AttendanceMigrations.Configuration "Initial Attendance Migration"
+
+update-database –ConfigurationTypeName StudentAttendance.Migrations.ApplicationUserMigrations.Configuration 
+update-database –ConfigurationTypeName StudentAttendance.Migrations.AttendanceMigrations.Configuration
+
