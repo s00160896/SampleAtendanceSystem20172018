@@ -14,7 +14,7 @@ namespace StudentAttendance.Models.Banner
         public int  id { get; set; }
         public string RegistrationID { get; set; }
         public string FirstName { get; set; }
-        public int SecondName { get; set; }
+        public string SecondName { get; set; }
         [EmailAddress]
         public string Email { get; set; }
         [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$",

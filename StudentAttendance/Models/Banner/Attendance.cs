@@ -12,8 +12,10 @@ namespace StudentAttendance.Models.Banner
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
+        public DateTime AttDate { get; set; }
+        public virtual Delivery ForDelivery { get; set; }
+        public virtual ICollection<StudentAttendance> attendees { get; set; }
 
-        public virtual ICollection<Delivery> ForDelivery { get; set; }
 
 
     }

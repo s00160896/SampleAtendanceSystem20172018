@@ -9,7 +9,7 @@ namespace StudentAttendance.Models.DTO
     {
         public string RegistrationID { get; set; }
         public string FirstName { get; set; }
-        public int SecondName { get; set; }
+        public string SecondName { get; set; }
 
     }
 }

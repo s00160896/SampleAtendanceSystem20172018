@@ -15,9 +15,10 @@ namespace StudentAttendance.Models.Banner
         }
         public DbSet<Student> Students { get; set; }
         public DbSet<Lecturer> Lecturers { get; set; }
+        public DbSet<Module> Modules { get; set; }
         public DbSet<Enrollment> Enrollments { get; set; }
         public DbSet<Delivery> Deliveries { get; set; }
         public DbSet<Attendance> Attendances { get; set; }
-        public DbSet<AttendanceList> AttendanceList { get; set; }
+        public DbSet<StudentAttendance> AttendanceList { get; set; }
     }
 }

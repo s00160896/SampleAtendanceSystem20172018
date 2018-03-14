@@ -13,7 +13,7 @@ namespace StudentAttendance.Models.Banner
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
         public string FirstName { get; set; }
-        public int SecondName { get; set; }
+        public string SecondName { get; set; }
 
         public virtual ICollection<Delivery> LecturerDelivery { get; set; }
     }
