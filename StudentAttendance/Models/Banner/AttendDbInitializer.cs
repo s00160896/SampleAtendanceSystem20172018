@@ -13,6 +13,10 @@ namespace StudentAttendance.Models.Banner
 {
     public class AttendDbInitializer : DropCreateDatabaseAlways<AttendanceDB>
     {
+        //public AttendDbInitializer(AttendanceDB context)
+        //{
+        //    Seed(context);
+        //}
         protected override void Seed(AttendanceDB context)
         {
             SeedStudents(context);
@@ -29,21 +33,20 @@ namespace StudentAttendance.Models.Banner
 
         private void SeedDelivery(AttendanceDB context, Module module, Lecturer lecturer)
         {
+            
             int[] slots = new int[] { 1, 2, 3, 4, 5, 6, 7, 8 };
             string[] days = new string[] { "Mon", "Tues", "Wed", "Thurs", "Fri" };
-            foreach (var student in context.Students)
-            {
-                context.Deliveries.AddOrUpdate(d => new { d.Day, d.TimeSlot, d.DeliveryOf, d.StudentEnrolled, d.DeliveredBy },
+            int slot = new Random().Next(slots.Count());
+            string day = days[new Random().Next(days.Count())];
+                context.Deliveries.AddOrUpdate(d => new {d.LecturerId,d.ModuleId, d.Day, d.TimeSlot},
                   new Delivery[] {
                     new Delivery {
                         DeliveredBy = lecturer,
                         DeliveryOf = module,
-                        StudentEnrolled = student,
-                        Day = days[new Random().Next(days.Count())],
-                        TimeSlot =new TimeSpan(new Random().Next(slots.Count()),0,0)
-                    }
-                  });
-            }
+                        Day = day,
+                        TimeSlot =new TimeSpan(slot,0,0)
+                  } });
+            
             context.SaveChanges();
         }
 
@@ -55,7 +58,7 @@ namespace StudentAttendance.Models.Banner
             foreach (var student in GetRandomStudent(context, 10))
             {
                 // enroll the students on the module
-                context.Enrollments.AddOrUpdate(e => new { e.Studentd, e.ModuleId },
+                context.Enrollments.AddOrUpdate(e => new { e.StudentId, e.ModuleId },
                     new Enrollment[] {
                         new Enrollment { StudentEnrolled = student,
                                          EnrolledOn = module,

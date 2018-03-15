@@ -19,7 +19,12 @@ namespace StudentAttendance.Models.Banner
         [Display(Name = "Delivery Time")]
         public TimeSpan TimeSlot { get; set; }
 
-        public virtual Student StudentEnrolled { get; set; }
+        [ForeignKey("DeliveryOf")]
+        public int ModuleId { get; set; }
+
+        [ForeignKey("DeliveredBy")]
+        public int LecturerId { get; set; }
+
         public virtual Module DeliveryOf { get; set; }
         public virtual Lecturer DeliveredBy { get; set; }
     }

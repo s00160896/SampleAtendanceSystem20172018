@@ -13,7 +13,7 @@ namespace StudentAttendance.Models.Banner
         [Key]
         public int id { get; set; }
         [ForeignKey("StudentEnrolled")]
-        public int Studentd { get; set; }
+        public int StudentId { get; set; }
         [ForeignKey("EnrolledOn")]
         public int ModuleId { get; set; }
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]

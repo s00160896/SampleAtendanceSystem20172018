@@ -15,6 +15,7 @@ namespace StudentAttendance.Models.Banner
         [ForeignKey("attendee")]
         public int StudentID { get; set; }
         public bool attended { get; set; }
+
         public virtual Student attendee { get; set; }
         public virtual Attendance AttendanceOf { get; set; }
     }

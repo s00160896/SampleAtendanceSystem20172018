@@ -22,7 +22,6 @@ namespace StudentAttendance.Models.Banner
         public string PhoneNumber { get; set; }
 
         public virtual ICollection<Enrollment> EnrolledFor { get; set; }
-        public virtual ICollection<Delivery> Attends { get; set; }
 
 
     }
