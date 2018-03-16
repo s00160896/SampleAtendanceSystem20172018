@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -210,7 +211,9 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EnrollmentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LecturersController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -293,8 +296,22 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Lecturers\Create.cshtml" />
+    <Content Include="Views\Lecturers\Delete.cshtml" />
+    <Content Include="Views\Lecturers\Details.cshtml" />
+    <Content Include="Views\Lecturers\Edit.cshtml" />
+    <Content Include="Views\Lecturers\Index.cshtml" />
+    <Content Include="Views\Students\Create.cshtml" />
+    <Content Include="Views\Students\Delete.cshtml" />
+    <Content Include="Views\Students\Details.cshtml" />
+    <Content Include="Views\Students\Edit.cshtml" />
+    <Content Include="Views\Students\Index.cshtml" />
+    <Content Include="Views\Enrollments\Create.cshtml" />
+    <Content Include="Views\Enrollments\Delete.cshtml" />
+    <Content Include="Views\Enrollments\Details.cshtml" />
+    <Content Include="Views\Enrollments\Edit.cshtml" />
+    <Content Include="Views\Enrollments\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
