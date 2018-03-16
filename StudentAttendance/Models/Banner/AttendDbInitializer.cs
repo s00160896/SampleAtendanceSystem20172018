@@ -48,6 +48,7 @@ namespace StudentAttendance.Models.Banner
 
         private void SeedEnrollments(AttendanceDB context)
         {
+            Random rnd = new Random();
             // get the first module
             var module = context.Modules.First();
             // get a random selection of students
@@ -58,8 +59,9 @@ namespace StudentAttendance.Models.Banner
                     new Enrollment[] {
                         new Enrollment { StudentEnrolled = student,
                                          EnrolledOn = module,
-                                        EnrollmentDate = DateTime.Now
-                        }
+                                        EnrollmentDate = DateTime.Now,
+                                        Grade= rnd.Next(1,101)
+            }
                     });
             }
             context.SaveChanges();

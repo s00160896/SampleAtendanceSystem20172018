@@ -19,6 +19,7 @@ namespace StudentAttendance.Models.Banner
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [Column(TypeName ="date")]
         public DateTime? EnrollmentDate { get; set; }
+        public int Grade { get; set; }
         public virtual Student StudentEnrolled { get; set; }
         public virtual Module EnrolledOn { get; set; }
 
