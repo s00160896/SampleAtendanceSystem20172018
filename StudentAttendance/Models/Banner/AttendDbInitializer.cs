@@ -11,13 +11,9 @@ using System.Collections.Generic;
 
 namespace StudentAttendance.Models.Banner
 {
-    public class AttendDbInitializer : DropCreateDatabaseAlways<AttendanceDB>
+    public class AttendDbInitializer : CreateDatabaseIfNotExists<AttendanceDB>
     {
-        //public AttendDbInitializer(AttendanceDB context)
-        //{
-        //    Seed(context);
-        //}
-        protected override void Seed(AttendanceDB context)
+       protected override void Seed(AttendanceDB context)
         {
             SeedStudents(context);
             SeedModules(context);

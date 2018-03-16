@@ -14,11 +14,6 @@ namespace StudentAttendance
     {
         public void Configuration(IAppBuilder app)
         {
-#if DEBUG
-            //using (AttendanceDB startup = new AttendanceDB()) {
-            //   var att =  startup.Attendances.First(); // Just to activate the context and seed
-            //}
-#endif
             ConfigureAuth(app);
         }
     }
