@@ -10,16 +10,23 @@ using StudentAttendance.Models.Banner;
 
 namespace StudentAttendance.Controllers
 {
+    
+
+
     public class StudentsController : Controller
     {
         private AttendanceDB db = new AttendanceDB();
 
+        [Route("~/Students")]
         // GET: Students
         public ActionResult Index()
         {
             return View(db.Students.ToList());
         }
 
+
+
+        [Route("~/Students/Details/{id:int}")]
         // GET: Students/Details/5
         public ActionResult Details(int? id)
         {
@@ -36,6 +43,7 @@ namespace StudentAttendance.Controllers
         }
 
         // GET: Students/Create
+        [Route("Home/Contact")]
         public ActionResult Create()
         {
             return View();

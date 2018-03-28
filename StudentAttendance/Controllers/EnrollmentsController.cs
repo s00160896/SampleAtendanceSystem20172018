@@ -20,7 +20,7 @@ namespace StudentAttendance.Controllers
             var enrollments = db.Enrollments.Include(e => e.EnrolledOn).Include(e => e.StudentEnrolled);
             return View(enrollments.ToList());
         }
-
+        [Route("~/Enrollments/Details/{id:int}")]
         // GET: Enrollments/Details/5
         public ActionResult Details(int? id)
         {

@@ -19,6 +19,7 @@ namespace StudentAttendance.Controllers
         {
             return View(db.Lecturers.ToList());
         }
+        [Route("~/Lecturers/Details/{id:int}")]
 
         // GET: Lecturers/Details/5
         public ActionResult Details(int? id)
