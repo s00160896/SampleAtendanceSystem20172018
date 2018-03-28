@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using StudentAttendance.Models.Banner;
+using StudentAttendance.Models.Interfaces;
 
 namespace StudentAttendance.Controllers
 {
@@ -15,13 +16,15 @@ namespace StudentAttendance.Controllers
 
     public class StudentsController : Controller
     {
-        private AttendanceDB db = new AttendanceDB();
+        //private AttendanceDB db = new AttendanceDB();
+        private StudentsRepository db = new StudentsRepository();
 
         [Route("~/Students")]
         // GET: Students
         public ActionResult Index()
         {
-            return View(db.Students.ToList());
+            // return View(db.Students.ToList());
+            return View(db.GetStudents());
         }
 
 
@@ -34,7 +37,8 @@ namespace StudentAttendance.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
+            // Student student = db.Students.Find(id);
+            Student student = db.FindById(Convert.ToInt32(id));
             if (student == null)
             {
                 return HttpNotFound();
@@ -58,8 +62,9 @@ namespace StudentAttendance.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Students.Add(student);
-                db.SaveChanges();
+                // db.Students.Add(student);
+                //db.SaveChanges();
+                db.Add(student);
                 return RedirectToAction("Index");
             }
 
@@ -73,7 +78,8 @@ namespace StudentAttendance.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
+            // Student student = db.Students.Find(id);
+            Student student = db.FindById(Convert.ToInt32(id));
             if (student == null)
             {
                 return HttpNotFound();
@@ -90,8 +96,9 @@ namespace StudentAttendance.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(student).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(student).State = EntityState.Modified;
+                // db.SaveChanges();
+                db.Edit(student);
                 return RedirectToAction("Index");
             }
             return View(student);
@@ -104,7 +111,8 @@ namespace StudentAttendance.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
+            //Student student = db.Students.Find(id);
+            Student student = db.FindById(Convert.ToInt32(id));
             if (student == null)
             {
                 return HttpNotFound();
@@ -117,9 +125,10 @@ namespace StudentAttendance.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Student student = db.Students.Find(id);
-            db.Students.Remove(student);
-            db.SaveChanges();
+            // Student student = db.Students.Find(id);
+            //  db.Students.Remove(student);
+            // db.SaveChanges();
+            db.Remove(id);
             return RedirectToAction("Index");
         }
 
@@ -127,7 +136,7 @@ namespace StudentAttendance.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+               // db.Dispose();
             }
             base.Dispose(disposing);
         }

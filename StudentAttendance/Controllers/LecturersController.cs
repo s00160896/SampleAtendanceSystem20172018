@@ -7,17 +7,19 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using StudentAttendance.Models.Banner;
+using StudentAttendance.Models.Interfaces;
 
 namespace StudentAttendance.Controllers
 {
     public class LecturersController : Controller
     {
-        private AttendanceDB db = new AttendanceDB();
+       // private AttendanceDB db = new AttendanceDB();
+        private LecturerRepository db = new LecturerRepository();
 
         // GET: Lecturers
         public ActionResult Index()
         {
-            return View(db.Lecturers.ToList());
+            return View(db.GetLectures());
         }
         [Route("~/Lecturers/Details/{id:int}")]
 
@@ -28,7 +30,7 @@ namespace StudentAttendance.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Lecturer lecturer = db.Lecturers.Find(id);
+            Lecturer lecturer = db.FindById(Convert.ToInt32(id));
             if (lecturer == null)
             {
                 return HttpNotFound();
@@ -51,8 +53,9 @@ namespace StudentAttendance.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Lecturers.Add(lecturer);
-                db.SaveChanges();
+                //db.Lecturers.Add(lecturer);
+                //db.SaveChanges();
+                db.Add(lecturer);
                 return RedirectToAction("Index");
             }
 
@@ -66,7 +69,7 @@ namespace StudentAttendance.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Lecturer lecturer = db.Lecturers.Find(id);
+            Lecturer lecturer = db.FindById(Convert.ToInt32(id));
             if (lecturer == null)
             {
                 return HttpNotFound();
@@ -83,8 +86,9 @@ namespace StudentAttendance.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(lecturer).State = EntityState.Modified;
-                db.SaveChanges();
+                // db.Entry(lecturer).State = EntityState.Modified;
+                // db.SaveChanges();
+                db.Edit(lecturer);
                 return RedirectToAction("Index");
             }
             return View(lecturer);
@@ -97,7 +101,7 @@ namespace StudentAttendance.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Lecturer lecturer = db.Lecturers.Find(id);
+            Lecturer lecturer = db.FindById(Convert.ToInt32(id));
             if (lecturer == null)
             {
                 return HttpNotFound();
@@ -110,17 +114,15 @@ namespace StudentAttendance.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Lecturer lecturer = db.Lecturers.Find(id);
-            db.Lecturers.Remove(lecturer);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            db.Remove(id);
+            return RedirectToAction("Index"); ;
         }
 
         protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
-                db.Dispose();
+                //db.Dispose();
             }
             base.Dispose(disposing);
         }

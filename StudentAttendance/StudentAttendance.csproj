@@ -233,6 +233,10 @@
     <Compile Include="Models\Banner\Student.cs" />
     <Compile Include="Models\DTO\StudentDTO.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Interfaces\ILecturerRepository.cs" />
+    <Compile Include="Models\Interfaces\IStudentsRepository.cs" />
+    <Compile Include="Models\Interfaces\LecturerRepository.cs" />
+    <Compile Include="Models\Interfaces\StudentsRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
