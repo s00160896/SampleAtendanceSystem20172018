@@ -24,5 +24,26 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Window_Loaded_1(object sender, RoutedEventArgs e)
+        {
+
+            WpfApp1._aspnet_StudentAttendance_20180308103350DataSet _aspnet_StudentAttendance_20180308103350DataSet = ((WpfApp1._aspnet_StudentAttendance_20180308103350DataSet)(this.FindResource("_aspnet_StudentAttendance_20180308103350DataSet")));
+            // Load data into the table Students. You can modify this code as needed.
+            WpfApp1._aspnet_StudentAttendance_20180308103350DataSetTableAdapters.StudentsTableAdapter _aspnet_StudentAttendance_20180308103350DataSetStudentsTableAdapter = new WpfApp1._aspnet_StudentAttendance_20180308103350DataSetTableAdapters.StudentsTableAdapter();
+            _aspnet_StudentAttendance_20180308103350DataSetStudentsTableAdapter.Fill(_aspnet_StudentAttendance_20180308103350DataSet.Students);
+            System.Windows.Data.CollectionViewSource studentsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("studentsViewSource")));
+            studentsViewSource.View.MoveCurrentToFirst();
+            // Load data into the table Lecturers. You can modify this code as needed.
+            WpfApp1._aspnet_StudentAttendance_20180308103350DataSetTableAdapters.LecturersTableAdapter _aspnet_StudentAttendance_20180308103350DataSetLecturersTableAdapter = new WpfApp1._aspnet_StudentAttendance_20180308103350DataSetTableAdapters.LecturersTableAdapter();
+            _aspnet_StudentAttendance_20180308103350DataSetLecturersTableAdapter.Fill(_aspnet_StudentAttendance_20180308103350DataSet.Lecturers);
+            System.Windows.Data.CollectionViewSource lecturersViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("lecturersViewSource")));
+            lecturersViewSource.View.MoveCurrentToFirst();
+        }
     }
 }

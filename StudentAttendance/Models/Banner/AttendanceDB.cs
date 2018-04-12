@@ -20,5 +20,6 @@ namespace StudentAttendance.Models.Banner
         public DbSet<Delivery> Deliveries { get; set; }
         public DbSet<Attendance> Attendances { get; set; }
         public DbSet<StudentAttendance> AttendanceList { get; set; }
+        
     }
 }

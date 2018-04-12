@@ -13,6 +13,7 @@ namespace StudentAttendance.Models.Banner
 {
     public class AttendDbInitializer : CreateDatabaseIfNotExists<AttendanceDB>
     {
+
        protected override void Seed(AttendanceDB context)
         {
             SeedStudents(context);

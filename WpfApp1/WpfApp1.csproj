@@ -54,6 +54,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="_aspnet_StudentAttendance_20180308103350DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_aspnet_StudentAttendance_20180308103350DataSet.xsd</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -88,6 +93,17 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="_aspnet_StudentAttendance_20180308103350DataSet.xsc">
+      <DependentUpon>_aspnet_StudentAttendance_20180308103350DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="_aspnet_StudentAttendance_20180308103350DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>_aspnet_StudentAttendance_20180308103350DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="_aspnet_StudentAttendance_20180308103350DataSet.xss">
+      <DependentUpon>_aspnet_StudentAttendance_20180308103350DataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

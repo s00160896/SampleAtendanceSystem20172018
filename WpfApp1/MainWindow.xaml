@@ -5,8 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded_1">
+    <Window.Resources>
+        <local:_aspnet_StudentAttendance_20180308103350DataSet x:Key="_aspnet_StudentAttendance_20180308103350DataSet"/>
+        <CollectionViewSource x:Key="studentsViewSource" Source="{Binding Students, Source={StaticResource _aspnet_StudentAttendance_20180308103350DataSet}}"/>
+        <CollectionViewSource x:Key="lecturersViewSource" Source="{Binding Lecturers, Source={StaticResource _aspnet_StudentAttendance_20180308103350DataSet}}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource studentsViewSource}">
+        <DataGrid   IsTextSearchEnabled="True" x:Name="studentsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="0,56,420.6,10" RowDetailsVisibilityMode="VisibleWhenSelected">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="idColumn" Binding="{Binding id}" Header="id" IsReadOnly="True" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="registrationIDColumn" Binding="{Binding RegistrationID}" Header="Registration ID" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="firstNameColumn" Binding="{Binding FirstName}" Header="First Name" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="secondNameColumn" Binding="{Binding SecondName}" Header="Second Name" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="emailColumn" Binding="{Binding Email}" Header="Email" Width="100"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Students" HorizontalAlignment="Left" Height="28" Margin="10,10,0,0" VerticalAlignment="Top" Width="383"/>
+        <DataGrid x:Name="lecturersDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource lecturersViewSource}}" Margin="373,56,20.6,196" RowDetailsVisibilityMode="VisibleWhenSelected">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="idColumn1" Binding="{Binding id}" Header="id" IsReadOnly="True" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="firstNameColumn1" Binding="{Binding FirstName}" Header="First Name" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="secondNameColumn1" Binding="{Binding SecondName}" Header="Second Name" Width="SizeToHeader"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Lecturers " HorizontalAlignment="Left" Height="28" Margin="398,10,0,0" VerticalAlignment="Top" Width="308"/>
+
     </Grid>
 </Window>
