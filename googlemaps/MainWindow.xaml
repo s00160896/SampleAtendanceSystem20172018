@@ -1,0 +1,14 @@
+﻿<Window x:Class="googlemaps.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:googlemaps"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <DockPanel Height="262" VerticalAlignment="Top" Margin="-1,94,-0.4,0">
+        
+        <WebBrowser  Name="Wb" Margin="0,0,0,-113" />
+    </DockPanel>
+</Window>
