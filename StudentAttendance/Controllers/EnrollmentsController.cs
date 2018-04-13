@@ -10,6 +10,7 @@ using StudentAttendance.Models.Banner;
 
 namespace StudentAttendance.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class EnrollmentsController : Controller
     {
         private AttendanceDB db = new AttendanceDB();
