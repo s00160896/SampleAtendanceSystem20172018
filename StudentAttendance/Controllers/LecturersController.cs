@@ -11,6 +11,7 @@ using StudentAttendance.Models.Interfaces;
 
 namespace StudentAttendance.Controllers
 {
+    [Authorize(Roles = "Lecturer")]
     public class LecturersController : Controller
     {
        // private AttendanceDB db = new AttendanceDB();

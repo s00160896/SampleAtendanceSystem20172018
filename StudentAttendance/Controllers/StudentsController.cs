@@ -11,9 +11,9 @@ using StudentAttendance.Models.Interfaces;
 
 namespace StudentAttendance.Controllers
 {
-    
 
 
+    [Authorize(Roles = "Student")]
     public class StudentsController : Controller
     {
         //private AttendanceDB db = new AttendanceDB();
